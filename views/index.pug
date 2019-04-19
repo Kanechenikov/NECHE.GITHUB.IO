@@ -1,5 +1,34 @@
 ﻿extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+    .main-container
+      .content-body
+        .success-text Adam Karst
+      .step
+        .step-icon
+          img(src='img/lightbulbWhite.svg')
+        .step-text A work in progress.
+      #mytopnav.topnav
+        a.navBarItem.active(href='#home') Home
+        a.navBarItem(href='#news') News
+        a.navBarItem(href='#contact') Contact
+        .dropdown.navBarItem
+            button.dropbtn
+                | Dropdown 
+                i.fa.fa-caret-down
+            .dropdown-content
+                a.navBarItem(href='#') Link 1
+                a.navBarItem(href='#') Link 2
+                a.navBarItem(href='#') Link 3
+        a.navBarItem(href='#about') About
+        a.navBarItem.icon(href='javascript:void(0);')
+    script.
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("mytopnav");
+        var btns = header.getElementsByClassName("navBarItem");
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+        }
