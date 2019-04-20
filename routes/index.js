@@ -15,4 +15,6 @@ router.get('/', function (req, res) {
     res.render('index', { title: 'Adam Karst' });
 });
 
+
+
 module.exports = router;
