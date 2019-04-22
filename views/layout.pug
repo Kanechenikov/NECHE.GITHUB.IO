@@ -2,13 +2,29 @@
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/main.css')  
+    link(rel='stylesheet', href='/stylesheets/main.css') 
+    link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='description' content='')
+    meta(name='keywords' content='')
+    meta(name='author' content='Codrops')
+    link(rel='shortcut icon' href='favicon.ico')
+    link(rel='stylesheet' type='text/css' href='stylesheets/normalize.css')
+    link(rel='stylesheet' type='text/css' href='stylesheets/demo.css')
+    link(rel='stylesheet' type='text/css' href='stylesheets/decolines.css')
+    link(rel='stylesheet' type='text/css' href='stylesheets/pater.css')
+    link(href='https://fonts.googleapis.com/css?family=Bungee+Inline|Roboto+Mono' rel='stylesheet')
+    //if IE
+        script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
   body
-    #mytopnav.topnav
-        a#home.navBarItem(href='/') Home
-        a#services.navBarItem(href='services') Services
-        a#contact.navBarItem(href='contact') Contact
-        #dropdown.dropdown.navBarItem
+    #mytopnav.topnav.responsive
+        a#home.navBarItem.floatleft(href='/') Home
+            i.material-icons.iconpadding home
+        a#services.navBarItem.floatleft(href='services') Services
+            i.material-icons.iconpadding work
+        a#contact.navBarItem.floatleft(href='contact') Contact
+            i.material-icons.iconpadding portrait
+        //#dropdown.dropdown.navBarItem.floatleft
             button.dropbtn
                 | Dropdown 
                 i.fa.fa-caret-down
@@ -16,8 +32,8 @@ html
                 a.navBarItem(href='#') Link 1
                 a.navBarItem(href='#') Link 2
                 a.navBarItem(href='#') Link 3
-        a#about.navBarItem(href='about') About
-        a#icon.navBarItem.icon(href='javascript:void(0);')
+        a#about.navBarItem.floatright(href='about') About
+            i.material-icons.iconpadding info
     script.
         var header = document.getElementById("mytopnav");
         var btns = header.getElementsByClassName("navBarItem");
@@ -25,12 +41,20 @@ html
         for (var i = 0; i < btns.length; i++) {
         if (url == "") {
         var homelink = document.getElementById("home");
+        if (!homelink.className.includes("active")) {
         homelink.className += " active";
+        }
         }
         else {
         var link = document.getElementById(url);
+        if (!link.className.includes("active")) {
         link.className += " active";
+        }
         }
         }
 
     block content
+    block foot
+        .footer-container
+            .bottomnav
+                a(href='/') A work in progress by Adam Karst, 2019
